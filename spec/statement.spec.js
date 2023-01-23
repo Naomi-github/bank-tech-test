@@ -17,7 +17,7 @@ describe('statement credit', () => {
     statement.addDeposits(mockAccount)
 
 
-    expect(statement.returnStatement()).toEqual ("credit ||\n1000 ||\n2000 ||\n")
+    expect(statement.returnStatement()).toEqual ("credit ||\n2000 ||\n1000 ||\n")
   });
 
 
