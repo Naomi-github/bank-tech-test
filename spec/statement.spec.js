@@ -73,6 +73,22 @@ describe('statement returns debit and credit', () => {
     expect(statement.returnStatement()).toContain("debit")
     expect(statement.returnStatement()).toContain("500")
   });
+
+  it('returns multiple debits and credits in one statement', () => {
+    const mockAccountCredit = ['1000', '500']
+    const mockAccountDebit = ['500', '700']
+    const statement  = new Statement()
+
+    statement.addDeposits(mockAccountCredit)
+    statement.addWithdrawals(mockAccountDebit)
+
+    expect(statement.returnStatement()).toContain("credit")
+    expect(statement.returnStatement()).toContain("1000")
+    expect(statement.returnStatement()).toContain("500")
+    expect(statement.returnStatement()).toContain("debit")
+    expect(statement.returnStatement()).toContain("500")
+    expect(statement.returnStatement()).toContain("700")
+  });
 });
 
 

@@ -93,7 +93,49 @@ describe('account statement returns debits', () => {
     expect(statement.returnStatement()).toContain ("100")
     expect(statement.returnStatement()).toContain ("500")
   });
+});
 
+describe('account statement returns debit and credit', () => {
+  it('returns a debit and a credit in one statement', () => {
+
+    const account = new Account()
+    const statement  = new Statement()
+
+    account.addDeposit('deposit, 1000')
+    account.addWithdrawal('withdrawal, 500')
+
+    let depoist = account.returnDeposit()
+    let withdrawal = account.returnWithdrawal()
+
+    statement.addDeposits(depoist)
+    statement.addWithdrawals(withdrawal)
+
+    expect(statement.returnStatement()).toContain("credit")
+    expect(statement.returnStatement()).toContain("1000")
+    expect(statement.returnStatement()).toContain("debit")
+    expect(statement.returnStatement()).toContain("500")
+  });
+
+  it('returns multiple debits and credits in one statement', () => {
+    const account = new Account()
+    const statement  = new Statement()
+
+    account.addDeposit('deposit, 1000')
+    account.addWithdrawal('withdrawal, 500')
+    account.addDeposit('deposit, 5000')
+    account.addWithdrawal('withdrawal, 3500')
+
+    let depoist = account.returnDeposit()
+    let withdrawal = account.returnWithdrawal()
+
+    statement.addDeposits(depoist)
+    statement.addWithdrawals(withdrawal)
+
+    expect(statement.returnStatement()).toContain("credit")
+    expect(statement.returnStatement()).toContain("1000")
+    expect(statement.returnStatement()).toContain("debit")
+    expect(statement.returnStatement()).toContain("500")
+  });
 });
 
 
