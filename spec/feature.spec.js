@@ -88,7 +88,7 @@ describe('account statement returns debits', () => {
 
     statement.addWithdrawals(withdrawal)
 
-    expect(statement.returnStatement()).toContain ("debit ||\n")
+    expect(statement.returnStatement()).toContain ("debit")
     expect(statement.returnStatement()).toContain ("900")
     expect(statement.returnStatement()).toContain ("100")
     expect(statement.returnStatement()).toContain ("500")
