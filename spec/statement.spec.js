@@ -92,7 +92,7 @@ describe('statement returns debit and credit', () => {
 });
 
 describe('statement returns balance', () => {
-  it('returns balance of a single deposit', () => {
+  it('returns balance of a single credit', () => {
     const mockAccount = ['1000']
     const statement = new Statement()
 
@@ -104,7 +104,7 @@ describe('statement returns balance', () => {
     expect(statement.returnStatement()).toContain("1000")
   });
 
-  it('returns balance for multiple deposits', () => {
+  it('returns balance for multiple credits', () => {
     const mockAccount = ['1000', '1000']
     const statement = new Statement()
 
@@ -115,6 +115,23 @@ describe('statement returns balance', () => {
     expect(statement.returnStatement()).toContain("balance")
     expect(statement.returnStatement()).toContain("1000")
     expect(statement.returnStatement()).toContain("2000")
+  });
+
+  it('returns balance for credits and debits ', () => {
+    const mockAccountDeposit = ['1000', '1000']
+    const mockAccountWithdrawal = ['500', '500']
+    const statement = new Statement()
+
+    statement.addDeposits(mockAccountDeposit)
+    statement.addWithdrawals(mockAccountWithdrawal)
+
+    expect(statement.returnStatement()).toContain ('credit')
+    expect(statement.returnStatement()).toContain ('debit')
+    expect(statement.returnStatement()).toContain ('1000')
+    expect(statement.returnStatement()).toContain("balance")
+    expect(statement.returnStatement()).toContain("1000")
+    expect(statement.returnStatement()).toContain("2000")
+    expect(statement.returnStatement()).toContain("1500")
   });
 });
 
