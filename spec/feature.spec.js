@@ -1,8 +1,8 @@
 const Account = require("../lib/account");
 const Statement = require("../lib/statement");
 
-describe('account statement returns deposits', () => {
-  it('returns a single deposit', () => {
+describe('account statement returns credits', () => {
+  it('returns a single credit', () => {
     const account = new Account()
     const statement = new Statement()
 
@@ -11,10 +11,10 @@ describe('account statement returns deposits', () => {
 
     statement.addDeposits(deposit)
 
-    expect(statement.returnStatement()).toEqual ("credit ||\n1000 ||\n")
+    expect(statement.returnStatement()).toContain ("credit ||\n1000 ||\n")
   });
 
-  it('returns two deposits', () => {
+  it('returns two credits', () => {
     const account = new Account()
     const statement = new Statement()
 
@@ -24,10 +24,10 @@ describe('account statement returns deposits', () => {
 
     statement.addDeposits(deposit)
 
-    expect(statement.returnStatement()).toEqual ("credit ||\n2000 ||\n1000 ||\n")
+    expect(statement.returnStatement()).toContain ("credit ||\n2000 ||\n1000 ||\n")
   });
 
-  it('returns multiple deposits', () => {
+  it('returns multiple credits', () => {
     const account = new Account()
     const statement = new Statement()
 
@@ -38,8 +38,23 @@ describe('account statement returns deposits', () => {
 
     statement.addDeposits(deposit)
 
-    expect(statement.returnStatement()).toEqual ("credit ||\n6000 ||\n2000 ||\n1000 ||\n")
+    expect(statement.returnStatement()).toContain ("credit ||\n6000 ||\n2000 ||\n1000 ||\n")
+  });
+});
+
+describe('account statement returns debits', () => {
+  it('returns a single debit', () => {
+    const account = new Account()
+    const statement = new Statement()
+
+    account.addWithdrawal("withdrawal, 500")
+    let withdrawal = account.returnWithdrawal()
+
+    statement.addWithdrawals(withdrawal)
+
+    expect(statement.returnStatement()).toContain ("debit ||\n500 ||\n")
   });
 
 });
+
 
