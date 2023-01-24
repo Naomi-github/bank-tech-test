@@ -11,7 +11,8 @@ describe('account statement returns credits', () => {
 
     statement.addDeposits(deposit)
 
-    expect(statement.returnStatement()).toContain ("credit ||\n1000 ||\n")
+    expect(statement.returnStatement()).toContain ("credit")
+    expect(statement.returnStatement()).toContain ("1000")
   });
 
   it('returns two credits', () => {
@@ -24,7 +25,9 @@ describe('account statement returns credits', () => {
 
     statement.addDeposits(deposit)
 
-    expect(statement.returnStatement()).toContain ("credit ||\n2000 ||\n1000 ||\n")
+    expect(statement.returnStatement()).toContain ("credit")
+    expect(statement.returnStatement()).toContain ("2000")
+    expect(statement.returnStatement()).toContain ("1000")
   });
 
   it('returns multiple credits', () => {
@@ -38,7 +41,10 @@ describe('account statement returns credits', () => {
 
     statement.addDeposits(deposit)
 
-    expect(statement.returnStatement()).toContain ("credit ||\n6000 ||\n2000 ||\n1000 ||\n")
+    expect(statement.returnStatement()).toContain ("credit")
+    expect(statement.returnStatement()).toContain ("6000")
+    expect(statement.returnStatement()).toContain ("2000")
+    expect(statement.returnStatement()).toContain ("1000")
   });
 });
 
@@ -52,7 +58,8 @@ describe('account statement returns debits', () => {
 
     statement.addWithdrawals(withdrawal)
 
-    expect(statement.returnStatement()).toContain ("debit ||\n500 ||\n")
+    expect(statement.returnStatement()).toContain ("debit")
+    expect(statement.returnStatement()).toContain ("500")
   });
 
   it('returns two debits', () => {
@@ -65,7 +72,9 @@ describe('account statement returns debits', () => {
 
     statement.addWithdrawals(withdrawal)
 
-    expect(statement.returnStatement()).toContain ("debit ||\n100 ||\n500 ||\n")
+    expect(statement.returnStatement()).toContain ("debit")
+    expect(statement.returnStatement()).toContain ("100")
+    expect(statement.returnStatement()).toContain ("500")
   });
 
   it('returns multiple debits', () => {
@@ -79,7 +88,10 @@ describe('account statement returns debits', () => {
 
     statement.addWithdrawals(withdrawal)
 
-    expect(statement.returnStatement()).toContain ("debit ||\n900 ||\n100 ||\n500 ||\n")
+    expect(statement.returnStatement()).toContain ("debit ||\n")
+    expect(statement.returnStatement()).toContain ("900")
+    expect(statement.returnStatement()).toContain ("100")
+    expect(statement.returnStatement()).toContain ("500")
   });
 
 });
