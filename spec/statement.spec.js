@@ -91,4 +91,20 @@ describe('statement returns debit and credit', () => {
   });
 });
 
+describe('statement returns balance', () => {
+  it('returns balance of a single deposit', () => {
+    const mockAccount = ['1000']
+    const statement = new Statement()
+
+    statement.addDeposits(mockAccount)
+    // statement.addBalance()
+
+    expect(statement.returnStatement()).toContain ('credit')
+    expect(statement.returnStatement()).toContain ('1000')
+    expect(statement.returnStatement(mockAccount)).toContain("balance")
+    expect(statement.returnStatement(mockAccount)).toContain("1000")
+});
+});
+
+
 

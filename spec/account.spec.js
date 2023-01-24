@@ -74,17 +74,6 @@ describe('account deposits and withdraws', () => {
   });
 });
 
-describe('account returns balance with depoist', () => {
-  it('returns balance of a single deposit', () => {
-      accountChange = new Account()
-
-      accountChange.addDeposit("deposit, 1000")
-
-      expect(accountChange.returnDeposit()).toContain ('1000')
-      expect(accountChange.balanceTotal()).toEqual ([1000])
-  });
-
-});
 
 
 
