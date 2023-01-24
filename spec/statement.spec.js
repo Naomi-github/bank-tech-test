@@ -97,13 +97,25 @@ describe('statement returns balance', () => {
     const statement = new Statement()
 
     statement.addDeposits(mockAccount)
-    // statement.addBalance()
 
     expect(statement.returnStatement()).toContain ('credit')
     expect(statement.returnStatement()).toContain ('1000')
-    expect(statement.returnStatement(mockAccount)).toContain("balance")
-    expect(statement.returnStatement(mockAccount)).toContain("1000")
-});
+    expect(statement.returnStatement()).toContain("balance")
+    expect(statement.returnStatement()).toContain("1000")
+  });
+
+  it('returns balance for multiple deposits', () => {
+    const mockAccount = ['1000', '1000']
+    const statement = new Statement()
+
+    statement.addDeposits(mockAccount)
+
+    expect(statement.returnStatement()).toContain ('credit')
+    expect(statement.returnStatement()).toContain ('1000')
+    expect(statement.returnStatement()).toContain("balance")
+    expect(statement.returnStatement()).toContain("1000")
+    expect(statement.returnStatement()).toContain("2000")
+  });
 });
 
 
