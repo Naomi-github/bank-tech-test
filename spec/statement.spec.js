@@ -30,5 +30,23 @@ describe('statements debit', () => {
 
     expect(statement.returnStatement()).toContain ("debit ||\n500 ||\n")
   });
+
+  it('returns two debits', () => {
+    const mockaccount = ['500', '100']
+    const statement = new Statement()
+
+    statement.addWithdrawals(mockaccount)
+
+    expect(statement.returnStatement()).toContain ("debit ||\n500 ||\n100 ||\n")
+  });
+
+  it('returns multiple debits', () => {
+    const mockaccount = ['500', '100', '900']
+    const statement = new Statement()
+
+    statement.addWithdrawals(mockaccount)
+
+    expect(statement.returnStatement()).toContain ("debit ||\n500 ||\n100 ||\n900 ||\n")
+  });
 });
 
