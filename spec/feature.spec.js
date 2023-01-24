@@ -55,6 +55,33 @@ describe('account statement returns debits', () => {
     expect(statement.returnStatement()).toContain ("debit ||\n500 ||\n")
   });
 
+  it('returns two debits', () => {
+    const account = new Account()
+    const statement = new Statement()
+
+    account.addWithdrawal("withdrawal, 500")
+    account.addWithdrawal("withdrawal, 100")
+    let withdrawal = account.returnWithdrawal()
+
+    statement.addWithdrawals(withdrawal)
+
+    expect(statement.returnStatement()).toContain ("debit ||\n100 ||\n500 ||\n")
+  });
+
+  it('returns multiple debits', () => {
+    const account = new Account()
+    const statement = new Statement()
+
+    account.addWithdrawal("withdrawal, 500")
+    account.addWithdrawal("withdrawal, 100")
+    account.addWithdrawal("withdrawal, 900")
+    let withdrawal = account.returnWithdrawal()
+
+    statement.addWithdrawals(withdrawal)
+
+    expect(statement.returnStatement()).toContain ("debit ||\n900 ||\n100 ||\n500 ||\n")
+  });
+
 });
 
 
