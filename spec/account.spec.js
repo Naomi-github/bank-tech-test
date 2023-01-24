@@ -36,5 +36,13 @@ describe('accounts withdrawal', () => {
     expect(accountChange.returnWithdrawal()).toEqual (['500'])
   });
 
+  it('returns array of two withdrawals ', () => {
+    accountChange = new Account()
+    accountChange.addWithdrawal("withdrawal, 100")
+    accountChange.addWithdrawal("withdrawal, 500")
+
+    expect(accountChange.returnWithdrawal()).toEqual (['500', '100'])
+  });
+
 });
 
