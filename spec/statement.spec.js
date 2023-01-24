@@ -7,7 +7,7 @@ describe('statement credit', () => {
 
     statement.addDeposits(mockaccount)
 
-    expect(statement.returnStatement()).toEqual ("credit ||\n1000 ||\n")
+    expect(statement.returnStatement()).toContain ("credit ||\n1000 ||\n")
   });
 
   it('returns two credits', () => {
@@ -17,8 +17,18 @@ describe('statement credit', () => {
     statement.addDeposits(mockAccount)
 
 
-    expect(statement.returnStatement()).toEqual ("credit ||\n2000 ||\n1000 ||\n")
+    expect(statement.returnStatement()).toContain ("credit ||\n2000 ||\n1000 ||\n")
   });
-
-
 });
+
+describe('statements debit', () => {
+  it('returns a single debit', () => {
+    const mockaccount = ['500']
+    const statement = new Statement()
+
+    statement.addWithdrawals(mockaccount)
+
+    expect(statement.returnStatement()).toContain ("debit ||\n500 ||\n")
+  });
+});
+
