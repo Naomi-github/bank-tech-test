@@ -143,10 +143,6 @@ describe('statement returns date of credit / debit', () => {
     statement.addDeposits(mockAccountDeposit)
     statement.addDate(mockAccountDate)
 
-    expect(statement.returnStatement()).toContain ('credit')
-    expect(statement.returnStatement()).toContain ('1000')
-    expect(statement.returnStatement()).toContain("balance")
-    expect(statement.returnStatement()).toContain("1000")
     expect(statement.returnStatement()).toContain("date")
     expect(statement.returnStatement()).toContain("12-01-2023")
   });
@@ -156,19 +152,29 @@ describe('statement returns date of credit / debit', () => {
     const mockAccountDate = ['12-01-2023', '13-01-2023']
     const statement = new Statement()
 
-
     statement.addDeposits(mockAccountDeposit)
     statement.addDate(mockAccountDate)
 
-    expect(statement.returnStatement()).toContain ('credit')
-    expect(statement.returnStatement()).toContain ('1000')
-    expect(statement.returnStatement()).toContain ('2000')
-    expect(statement.returnStatement()).toContain("balance")
-    expect(statement.returnStatement()).toContain("1000")
-    expect(statement.returnStatement()).toContain("3000")
     expect(statement.returnStatement()).toContain("date")
     expect(statement.returnStatement()).toContain("12-01-2023")
     expect(statement.returnStatement()).toContain("13-01-2023")
+  });
+
+  it('returns date for a multiple credits and debits', () => {
+    const mockAccountDeposit = ['1000', '2000']
+    const mockAccountWithdrawal = ['500', '600']
+    const mockAccountDate = ['12-01-2023', '13-01-2023', '14-01-2023', '15-01-2023']
+    const statement = new Statement()
+
+    statement.addDeposits(mockAccountDeposit)
+    statement.addWithdrawals(mockAccountWithdrawal)
+    statement.addDate(mockAccountDate)
+
+    expect(statement.returnStatement()).toContain("date")
+    expect(statement.returnStatement()).toContain("12-01-2023")
+    expect(statement.returnStatement()).toContain("13-01-2023")
+    expect(statement.returnStatement()).toContain("14-01-2023")
+    expect(statement.returnStatement()).toContain("15-01-2023")
   });
 
 });
