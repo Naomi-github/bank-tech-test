@@ -22,6 +22,6 @@ describe('account withdrawal', () => {
     withdrawal.addWithdrawal('02/01/2023, 500')
     withdrawal.addWithdrawal('03/01/2023, 600')
 
-    expect(withdrawal.returnWithdrawal()).toContain ('01/01/2023, 100', '02/01/2023, 500', '03/01/2023, 600')
+    expect(withdrawal.returnWithdrawal()).toContain ('01/01/2023, 100', '02/01/2023, 500', '100')
   });
 });
