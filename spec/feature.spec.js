@@ -138,4 +138,42 @@ describe('account statement returns debit and credit', () => {
   });
 });
 
+describe('account statement returns balance', () => {
+  it('returns balance of a single credit', () => {
+    const account = new Account()
+    const statement = new Statement()
+
+    account.addDeposit("deposit, 500")
+    let depoist = account.returnDeposit()
+    statement.addDeposits(depoist)
+
+    expect(statement.returnStatement()).toContain ("debit")
+    expect(statement.returnStatement()).toContain ("balance")
+    expect(statement.returnStatement()).toContain ("500")
+  });
+
+  it('returns balance of a single credit', () => {
+    const account = new Account()
+    const statement = new Statement()
+
+    account.addDeposit("deposit, 1000")
+    account.addWithdrawal("withdrawal, 500")
+    account.addDeposit("deposit, 2000")
+    account.addWithdrawal("withdrawal, 600")
+
+    let depoist = account.returnDeposit()
+    let withdrawal = account.returnWithdrawal()
+
+    statement.addDeposits(depoist)
+    statement.addWithdrawals(withdrawal)
+
+    expect(statement.returnStatement()).toContain ("debit")
+    expect(statement.returnStatement()).toContain ("balance")
+    expect(statement.returnStatement()).toContain ("500")
+    expect(statement.returnStatement()).toContain ("1000")
+    expect(statement.returnStatement()).toContain ("2500")
+  });
+
+});
+
 

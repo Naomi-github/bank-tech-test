@@ -129,7 +129,6 @@ describe('statement returns balance', () => {
     expect(statement.returnStatement()).toContain ('debit')
     expect(statement.returnStatement()).toContain ('1000')
     expect(statement.returnStatement()).toContain("balance")
-    expect(statement.returnStatement()).toContain("1000")
     expect(statement.returnStatement()).toContain("2000")
     expect(statement.returnStatement()).toContain("1500")
   });
