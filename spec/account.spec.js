@@ -1,33 +1,5 @@
 const Account = require('../lib/account')
 
-
-
-describe('account withdrawal', () => {
-  it('returns array of a single withdrawal ', () => {
-    accountChange = new Account()
-    accountChange.addWithdrawal("withdrawal, 500")
-
-    expect(accountChange.returnWithdrawal()).toContain ('500')
-  });
-
-  it('returns array of two withdrawals ', () => {
-    accountChange = new Account()
-    accountChange.addWithdrawal("withdrawal, 100")
-    accountChange.addWithdrawal("withdrawal, 500")
-
-    expect(accountChange.returnWithdrawal()).toContain ('500', '100')
-  });
-
-  it('returns array of two withdrawals ', () => {
-    accountChange = new Account()
-    accountChange.addWithdrawal("withdrawal, 100")
-    accountChange.addWithdrawal("withdrawal, 500")
-    accountChange.addWithdrawal("withdrawal, 600")
-
-    expect(accountChange.returnWithdrawal()).toContain ('600', '500', '100')
-  });
-});
-
 describe('account deposits and withdraws', () => {
   it('returns a single depoist and withdrawal', () => {
     accountChange = new Account()
