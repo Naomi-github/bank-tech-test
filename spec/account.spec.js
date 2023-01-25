@@ -74,6 +74,45 @@ describe('account deposits and withdraws', () => {
   });
 });
 
+describe('account date', () => {
+  it('returns the date of a single deposit', () => {
+      accountChange = new Account()
+      accountChange.addDeposit("12-01-2023, deposit, 1000")
+      accountChange.addDate("12-01-2023, deposit, 1000")
+
+      expect(accountChange.returnDate()).toContain ('12-01-2023')
+  });
+
+  it('returns the date of multiple deposits', () => {
+      accountChange = new Account()
+      accountChange.addDeposit("12-01-2023, deposit, 1000")
+      accountChange.addDate("12-01-2023, deposit, 1000")
+      accountChange.addDeposit("12-01-2023, deposit, 1000")
+      accountChange.addDate("13-01-2023, deposit, 1000")
+
+      expect(accountChange.returnDate()).toContain ('12-01-2023')
+      expect(accountChange.returnDate()).toContain ('13-01-2023')
+  });
+
+  it('returns the date of multiple deposits and withdrawals', () => {
+      accountChange = new Account()
+      accountChange.addDeposit("12-01-2023, deposit, 1000")
+      accountChange.addDate("12-01-2023, deposit, 1000")
+      accountChange.addDeposit("13-01-2023, deposit, 1000")
+      accountChange.addDate("13-01-2023, deposit, 1000")
+      accountChange.addWithdrawal("14-01-2023, deposit, 500")
+      accountChange.addDate("14-01-2023, deposit, 500")
+      accountChange.addWithdrawal("15-01-2023, deposit, 500")
+      accountChange.addDate("15-01-2023, deposit, 500")
+
+      expect(accountChange.returnDate()).toContain ('12-01-2023')
+      expect(accountChange.returnDate()).toContain ('13-01-2023')
+
+  });
+
+});
+
+
 
 
 
