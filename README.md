@@ -1,5 +1,5 @@
 # Bank tech test
-
+***
 ## Specification
 
 ### Requirements
@@ -23,7 +23,7 @@ date || credit || debit || balance
 13/01/2023 || 2000.00 || || 3000.00
 10/01/2023 || 1000.00 || || 1000.00
 ```
-
+***
 ### Quick Start
 
 ### Set up
@@ -42,7 +42,7 @@ Run tests with:
 ```shell
 jest
 ```
-
+***
 ### How to make a deposit / withdrawal:
 1. Require deposit / withdrawal with:
 ```js
@@ -108,11 +108,12 @@ statement.addAccount(account1)
 ```js
 statement.returnStatement()
 ```
+***
 ### Preview
 What to expect when you run in node
 
 ![node REPL](nodeREPL.png)
-
+***
 ### Planning
 Overview of the each class at the highest level
 
@@ -120,9 +121,8 @@ Overview of the each class at the highest level
 
 ***
 ### Edge cases to consider / improvements
-**empty string added to deposit / withdrawal
-**withdrawal larger than balanace
-**date entered but no deposit / withdrawal
-**date not entered with deposit / withdrawal
-**decimals are hard coded - need to be part of  balance so they can be changed
++empty string added to deposit / withdrawal+withdrawal larger than balanace
++date entered but no deposit / withdrawal
++date not entered with deposit / withdrawal
++decimals are hard coded - need to be part of  balance so they can be changed
 ***
