@@ -5,8 +5,8 @@ const Withdrawal = require("../lib/withdrawal");
 
 describe('account statement returns credits', () => {
   it('statement with a withdrawal and a deposit', () => {
-    const deposit = new Deposit
-    const withdrawal = new Withdrawal
+    const deposit = new Deposit()
+    const withdrawal = new Withdrawal()
     const account = new Account()
     const statement = new Statement()
 
