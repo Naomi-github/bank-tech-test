@@ -118,9 +118,11 @@ Overview of the each class at the highest level
 
 ![planning process](planning.png)
 
+***
 ### Edge cases to consider / improvements
-*empty string added to deposit / withdrawal
-*withdrawal larger than balanace
-*date entered but no deposit / withdrawal
-*date not entered with deposit / withdrawal
-*decimals are hard coded - need to be part of  balance so they can be changed
+**empty string added to deposit / withdrawal
+**withdrawal larger than balanace
+**date entered but no deposit / withdrawal
+**date not entered with deposit / withdrawal
+**decimals are hard coded - need to be part of  balance so they can be changed
+***
