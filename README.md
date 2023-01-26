@@ -26,6 +26,8 @@ date || credit || debit || balance
 
 ### Quick Start
 
+### Set up
+
 1. Clone this repo.
 
 2. Install dependencies with:
@@ -40,72 +42,77 @@ Run tests with:
 ```shell
 jest
 ```
-7. How to make a deposit / withdrawal:
 
+### How to make a deposit / withdrawal:
 1. Require deposit / withdrawal with:
-```
+```js
 const Deposit = require("./lib/deposit")
 ```
-```
+```js
 const Withdrawal = require("./lib/withdrawal")
 ```
 
 2. Set up a new deposit / withdrawal:
-```
+```js
 const deposit = new Deposit()
 ```
-```
+```js
 const withdrawal = new Withdrawal()
 ```
 3. Add the  amount and the date it was deposited/ withdrawn:
-```
+```js
 deposit.addDeposit('10/01/2023, 1000')
 ```
-```
+```js
 withdrawal.addWithdrawal('14/01/2023, 500')
 ```
 4. Return the deposit / withdrawal:
 ```
 const deposit1 = deposit.returnDeposit()
 ```
-```
+```js
 const withdrawal1 = withdrawal.returnWithdrawal()
 ```
 5. Require account with:
-```
+```js
 const Account = require("./lib/account")
 ```
 6. Set up a new account:
-```
+```js
 const account = new Account()
 ```
 7. Add the deposit / withdrawal to the account:
-```
+```js
 account.addDeposits(deposit1)
 ```
-```
+```js
 account.addWithdrawals(withdrawal1)
 ```
 8. Return the account:
-```
+```js
 const account1 = account.returnAccount()
 ```
 9. Require statement with:
-```
+```js
 const Statement = require("./lib/statement");
 ```
 10. Set up a new statement:
-```
+```js
 const statement = new Statement()
 ```
 11. Add the account to the statement
-```
+```js
 statement.addAccount(account1)
 ```
 12. Print the statement:
-```
+```js
 statement.returnStatement()
 ```
 ### Preview
 
-(nodeREPL.png)
+('./nodeREPL.png')
+
+
+### Planning
+
+('./planning.png')
