@@ -110,9 +110,8 @@ statement.returnStatement()
 ```
 ### Preview
 
-('./nodeREPL.png')
-
+![node REPL]('./nodeREPL.png')
 
 ### Planning
 
-('./planning.png')
+![planning process]('./planning.png')
