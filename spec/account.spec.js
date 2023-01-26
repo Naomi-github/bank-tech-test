@@ -9,7 +9,7 @@ describe('account deposits and withdraws', () => {
     account.addDeposits(mockDeposits)
     account.addWithdrawals(mockWithdrawals)
 
-    expect(account.returnAccount()).toEqual([ '01/01/2023 ||  1000 |||| 1000', '02/01/2023 ||||  500 || 500' ])
+    expect(account.returnAccount()).toEqual([ '01/01/2023 ||  1000.00 |||| 1000.00', '02/01/2023 ||||  500.00 || 500.00' ])
   });
 
   it('returns multiple depoists and withdrawals', () => {
@@ -25,10 +25,10 @@ describe('account deposits and withdraws', () => {
     account.addWithdrawals(mockWithdrawals1)
 
     expect(account.returnAccount()).toEqual([
-      '01/01/2023 ||  1000 |||| 1000',
-      '02/01/2023 ||||  500 || 500',
-      '03/01/2023 ||  2000 |||| 2500',
-      '04/01/2023 ||||  1000 || 1500'
+      '01/01/2023 ||  1000.00 |||| 1000.00',
+      '02/01/2023 ||||  500.00 || 500.00',
+      '03/01/2023 ||  2000.00 |||| 2500.00',
+      '04/01/2023 ||||  1000.00 || 1500.00'
     ])
   });
 });
